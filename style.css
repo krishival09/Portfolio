@@ -1,3 +1,14 @@
+:root {
+    --bg: #f4f6f8;
+    --ink: #17212b;
+    --muted: #52606d;
+    --line: #d7dde3;
+    --blue: #1769aa;
+    --sky: #9fc9e6;
+    --pale: #d9ecfa;
+    --nav-h: 72px;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -8,8 +19,8 @@ html {
 
 body {
     margin: 0;
-    background: #f4f6f8;
-    color: #17212b;
+    background: var(--bg);
+    color: var(--ink);
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
     line-height: 1.6;
@@ -23,13 +34,22 @@ p {
 }
 
 a {
-    color: #17212b;
+    color: var(--ink);
     text-decoration: none;
     transition: color 0.2s ease;
 }
 
 a:hover {
-    color: #1769aa;
+    color: var(--blue);
+}
+
+.hero-text,
+.about-card p,
+.skill-box p,
+.project-card p,
+.contact p,
+footer p {
+    color: var(--muted);
 }
 
 
@@ -38,14 +58,14 @@ a:hover {
     top: 0;
     z-index: 10;
     background: rgba(244, 246, 248, 0.96);
-    border-bottom: 1px solid #d7dde3;
+    border-bottom: 1px solid var(--line);
 }
 
 .nav-inner {
     width: 90%;
     max-width: 1120px;
     margin: 0 auto;
-    min-height: 72px;
+    min-height: var(--nav-h);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -60,7 +80,7 @@ a:hover {
 }
 
 .logo span {
-    color: #1769aa;
+    color: var(--blue);
 }
 
 .nav-links {
@@ -82,11 +102,11 @@ a:hover {
     min-height: 85vh;
     margin: 0 auto;
     padding: 100px 0;
-    scroll-margin-top: 72px;
+    scroll-margin-top: var(--nav-h);
 }
 
 .eyebrow {
-    color: #1769aa;
+    color: var(--blue);
     font-size: 0.78rem;
     font-weight: bold;
     letter-spacing: 0.16em;
@@ -107,15 +127,10 @@ a:hover {
 .hero {
     display: grid;
     grid-template-columns: 1.5fr 1fr;
-    grid-template-areas: "copy card";
     gap: 6vw;
     align-items: center;
-    min-height: calc(100vh - 72px);
+    min-height: calc(100vh - var(--nav-h));
     padding: 60px 0;
-}
-
-.hero-copy {
-    grid-area: copy;
 }
 
 .hero h1 {
@@ -126,69 +141,28 @@ a:hover {
 }
 
 .hero h1 span {
-    color: #1769aa;
+    color: var(--blue);
 }
 
 .hero h2 {
     font-size: clamp(1.2rem, 2.5vw, 1.8rem);
     font-weight: normal;
-    color: #1769aa;
+    color: var(--blue);
     margin-bottom: 20px;
 }
 
 .hero-text {
     max-width: 600px;
-    color: #52606d;
     font-size: 1.05rem;
     line-height: 1.7;
 }
 
-.hero-buttons {
-    margin-top: 32px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 14px;
-}
-
-.button {
-    display: inline-block;
-    padding: 12px 24px;
-    border: 2px solid #1769aa;
-    border-radius: 8px;
-    font-weight: bold;
-    font-size: 0.95rem;
-    transition: all 0.2s ease;
-}
-
-.button.primary {
-    background: #1769aa;
-    color: white;
-}
-
-.button.primary:hover {
-    background: #0f4f80;
-    border-color: #0f4f80;
-    color: white;
-    transform: translateY(-2px);
-}
-
-.button.secondary {
-    background: transparent;
-    color: #1769aa;
-}
-
-.button.secondary:hover {
-    background: #eaf2f9;
-    transform: translateY(-2px);
-}
-
 .hero-card {
-    grid-area: card;
     min-height: 390px;
     padding: 36px;
-    background: #17212b;
-    color: #f4f6f8;
-    border: 2px solid #17212b;
+    background: var(--ink);
+    color: var(--bg);
+    border: 2px solid var(--ink);
     border-radius: 18px;
     display: flex;
     flex-direction: column;
@@ -209,14 +183,14 @@ a:hover {
     width: 240px;
     height: 240px;
     border-radius: 50%;
-    background: #1769aa;
+    background: var(--blue);
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 3.2rem;
     font-weight: bold;
-    border: 8px solid #d9ecfa;
+    border: 8px solid var(--pale);
     margin-bottom: 24px;
     animation: float 4s ease-in-out infinite;
 }
@@ -234,7 +208,6 @@ a:hover {
     margin-bottom: 0;
 }
 
-/* About Section */
 .about-grid {
     display: grid;
     grid-template-columns: 1.3fr 0.7fr;
@@ -244,7 +217,7 @@ a:hover {
 .about-card {
     padding: 36px;
     background: white;
-    border: 1px solid #d7dde3;
+    border: 1px solid var(--line);
     border-radius: 16px;
     box-shadow: 0 8px 24px rgba(23, 33, 43, 0.04);
     transition: transform 0.25s ease, box-shadow 0.25s ease;
@@ -261,17 +234,16 @@ a:hover {
 }
 
 .about-card p {
-    color: #52606d;
     line-height: 1.7;
 }
 
 .about-card.highlight {
-    background: #d9ecfa;
-    border-color: #9fc9e6;
+    background: var(--pale);
+    border-color: var(--sky);
 }
 
 .about-card.highlight h3 {
-    color: #1769aa;
+    color: var(--blue);
 }
 
 .about-card ul {
@@ -281,7 +253,6 @@ a:hover {
 
 .about-card li {
     margin-bottom: 8px;
-    color: #17212b;
 }
 
 .skills-grid {
@@ -294,7 +265,7 @@ a:hover {
     min-height: 230px;
     padding: 28px;
     background: white;
-    border: 1px solid #d7dde3;
+    border: 1px solid var(--line);
     border-radius: 14px;
     display: flex;
     flex-direction: column;
@@ -303,21 +274,23 @@ a:hover {
 }
 
 .skill-box:hover {
-    transform: translateY(-6px) !important;
+    transform: translateY(-6px);
     box-shadow: 0 14px 28px rgba(23, 33, 43, 0.08);
-    border-color: #9fc9e6;
+    border-color: var(--sky);
 }
 
-.skill-box:nth-of-type(2) {
-    transform: translateY(16px);
-}
+@media (min-width: 901px) {
+    .skill-box:nth-of-type(2) {
+        translate: 0 16px;
+    }
 
-.skill-box:nth-of-type(3) {
-    transform: translateY(32px);
+    .skill-box:nth-of-type(3) {
+        translate: 0 32px;
+    }
 }
 
 .skill-number {
-    color: #1769aa;
+    color: var(--blue);
     font-size: 0.8rem;
     font-weight: bold;
 }
@@ -337,11 +310,11 @@ a:hover {
 }
 
 .skill-box p {
-    color: #52606d;
     margin-bottom: 0;
     line-height: 1.6;
 }
 
+/* Projects Section */
 .project-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -352,7 +325,7 @@ a:hover {
 .project-card {
     padding: 34px;
     background: white;
-    border: 1px solid #d7dde3;
+    border: 1px solid var(--line);
     border-radius: 16px;
     display: flex;
     flex-direction: column;
@@ -363,30 +336,30 @@ a:hover {
 .project-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 16px 32px rgba(23, 33, 43, 0.08);
-    border-color: #9fc9e6;
+    border-color: var(--sky);
 }
 
 .project-large {
     grid-column: 1 / 2;
     grid-row: 1 / 3;
-    background: #17212b;
+    background: var(--ink);
     color: white;
 }
 
 .project-large:hover {
-    border-color: #1769aa;
+    border-color: var(--blue);
 }
 
 .project-number {
     font-size: 0.85rem;
     font-weight: bold;
     letter-spacing: 0.08em;
-    color: #1769aa;
+    color: var(--blue);
     margin-bottom: 12px;
 }
 
 .project-large .project-number {
-    color: #9fc9e6;
+    color: var(--sky);
 }
 
 .project-card h3 {
@@ -400,7 +373,6 @@ a:hover {
 }
 
 .project-card p {
-    color: #52606d;
     line-height: 1.65;
     margin-bottom: 20px;
 }
@@ -411,7 +383,7 @@ a:hover {
 }
 
 .project-card a {
-    color: #1769aa;
+    color: var(--blue);
     font-weight: bold;
     display: inline-block;
     transition: transform 0.2s ease;
@@ -422,7 +394,7 @@ a:hover {
 }
 
 .project-large a {
-    color: #9fc9e6;
+    color: var(--sky);
 }
 
 .project-large a:hover {
@@ -433,7 +405,7 @@ a:hover {
     width: 100%;
     overflow-x: auto;
     background: white;
-    border: 1px solid #d7dde3;
+    border: 1px solid var(--line);
     border-radius: 16px;
     padding: 12px;
 }
@@ -455,11 +427,11 @@ th,
 td {
     padding: 16px 20px;
     text-align: left;
-    border-bottom: 1px solid #d7dde3;
+    border-bottom: 1px solid var(--line);
 }
 
 th {
-    background: #17212b;
+    background: var(--ink);
     color: white;
     font-size: 0.85rem;
     letter-spacing: 0.08em;
@@ -476,7 +448,6 @@ tbody tr:hover {
 .contact {
     min-height: 70vh;
     display: grid;
-    grid-template-columns: 1fr;
     align-items: center;
 }
 
@@ -485,14 +456,13 @@ tbody tr:hover {
     grid-template-columns: 1.1fr 0.9fr;
     gap: 60px;
     padding: 56px;
-    background: #d9ecfa;
-    border: 1px solid #9fc9e6;
+    background: var(--pale);
+    border: 1px solid var(--sky);
     border-radius: 20px;
 }
 
 .contact p {
     max-width: 600px;
-    color: #52606d;
     line-height: 1.7;
 }
 
@@ -509,23 +479,22 @@ tbody tr:hover {
     align-items: center;
     padding: 14px 18px;
     background: rgba(255, 255, 255, 0.7);
-    border: 1px solid #9fc9e6;
+    border: 1px solid var(--sky);
     border-radius: 8px;
     font-weight: bold;
-    color: #17212b;
     transition: all 0.2s ease;
 }
 
 .contact-details a:hover {
     background: #ffffff;
-    color: #1769aa;
+    color: var(--blue);
     transform: translateX(4px);
 }
 
 .contact-detail-handle {
     font-size: 0.85rem;
     font-weight: normal;
-    color: #52606d;
+    color: var(--muted);
 }
 
 footer {
@@ -533,17 +502,11 @@ footer {
     max-width: 1120px;
     margin: 0 auto;
     padding: 36px 0 56px;
-    border-top: 1px solid #d7dde3;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 16px;
+    border-top: 1px solid var(--line);
 }
 
 footer p {
     margin: 0;
-    color: #52606d;
 }
 
 @keyframes float {
@@ -563,7 +526,6 @@ footer p {
 @media (max-width: 900px) {
     .hero {
         grid-template-columns: 1fr;
-        grid-template-areas: "copy" "card";
         gap: 40px;
     }
 
@@ -578,11 +540,6 @@ footer p {
     .about-grid,
     .contact-grid {
         grid-template-columns: 1fr;
-    }
-
-    .skill-box:nth-of-type(2),
-    .skill-box:nth-of-type(3) {
-        transform: none;
     }
 }
 
@@ -617,6 +574,11 @@ footer p {
         grid-column: auto;
         grid-row: auto;
     }
+
+    .contact-grid {
+        padding: 28px;
+    }
+}
 
     .contact-grid {
         padding: 28px;
